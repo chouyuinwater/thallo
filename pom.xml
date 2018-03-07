@@ -29,6 +29,7 @@
   <version>1.0-SNAPSHOT</version>
 
   <build>
+    <!--maven 插件设置。maven完成工作依靠插件，可以再测对插件进行设置，而不是在此引用插件-->
     <plugins>
       <plugin>
         <groupId>org.mortbay.jetty</groupId>
@@ -54,6 +55,11 @@
       <artifactId>[the artifact id of the block to be mounted]</artifactId>
       <version>1.0-SNAPSHOT</version>
     </dependency-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>4.1.7.RELEASE</version>
+    </dependency>
   </dependencies>
 
 </project>
