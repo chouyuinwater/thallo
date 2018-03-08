@@ -5,10 +5,10 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans.xsd
                            http://www.springframework.org/schema/context
-                           http://www.springframework.org/schema/context/spring-context.xsd"
-       default-lazy-init="false" default-autowire="byName">
-    <!--default-autowire="byName" 在声明的bean中添加get/set方法 可以直接根据id名字注入
-        例 直接将Chinese注入Speak 无注解 无ref 只有get/set方法 构造方法不可-->
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--default-lazy-init="false" default-autowire="byName">-->
+    <!--default-autowire="byName" 在声明的bean中添加set方法 可以直接根据id名字注入
+        例 直接将Chinese注入Speak 无注解 无ref 只有set方法 构造方法不可-->
     <context:annotation-config/>
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
@@ -24,6 +24,8 @@
     </bean>
 
     <bean id="chinese" class="com.fish.config_learn.bean.Chinese"/>
+
+    <bean id="english" class="com.fish.config_learn.bean.English"/>
 
     <bean id="speak" class="com.fish.config_learn.bean.Speak"/>
 
