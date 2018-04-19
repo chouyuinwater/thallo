@@ -13,7 +13,7 @@ public class Main {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("spring/spring-main.xml");
         Speak test = (Speak)ctx.getBean("speak");
         System.out.println(test.speakSomething());
-        ArrayList
+//        ArrayList
 
     }
 }
