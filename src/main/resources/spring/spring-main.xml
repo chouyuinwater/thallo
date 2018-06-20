@@ -19,14 +19,13 @@
         <property name="ignoreUnresolvablePlaceholders" value="true"/>
     </bean>
 
-    <bean id="test" class="com.fish.Test">
-        <constructor-arg value="${test.name}"/>
-    </bean>
+    <!--<bean id="test" class="com.fish.Test">-->
+        <!--<constructor-arg value="${test.name}"/>-->
+    <!--</bean>-->
+    <!--<bean id="chinese" class="com.fish.config_learn.bean.Chinese"/>-->
+    <!--<bean id="english" class="com.fish.config_learn.bean.English"/>-->
+    <!--<bean id="speak" class="com.fish.config_learn.bean.Speak"/>-->
 
-    <bean id="chinese" class="com.fish.config_learn.bean.Chinese"/>
 
-    <bean id="english" class="com.fish.config_learn.bean.English"/>
-
-    <bean id="speak" class="com.fish.config_learn.bean.Speak"/>
 
 </beans>
