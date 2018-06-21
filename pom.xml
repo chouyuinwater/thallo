@@ -84,5 +84,45 @@
       <version>4.12</version>
       <scope>test</scope>
     </dependency>
+
+    <!--默认名称为log4j2.xml，放在classpath下面即可，-->
+    <!--不需要在web.xml或applicationContext.xml或spring-mvc.xml中import-->
+    <!--private final static Logger logger = LoggerFactory.getLogger(CurrentClass.class);-->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.7.25</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+      <version>2.11.0</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
+      <version>2.11.0</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-web -->
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-web</artifactId>
+      <version>2.11.0</version>
+    </dependency>
+    <!-- bridge, slf4j use log4j2 -->
+    <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl -->
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-slf4j-impl</artifactId>
+      <version>2.11.0</version>
+    </dependency>
+    <!-- bridge, commons logging use log4j2 -->
+    <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-jcl -->
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-jcl</artifactId>
+      <version>2.11.0</version>
+    </dependency>
   </dependencies>
 </project>
