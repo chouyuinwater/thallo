@@ -2,7 +2,6 @@ package com.fish.algorithm;
 
 import com.fish.algorithm.vo.TreeNode;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**
@@ -44,7 +43,14 @@ import java.util.Arrays;
  */
 public class TreeOperate {
     public static void main(String[] args) {
-
+        TreeNode treeNode = reconstructingBinaryTree();
+        System.out.println("=============");
+        preorderTraversal(treeNode);
+        System.out.println("=============");
+        sequentialTraversal(treeNode);
+        System.out.println("=============");
+        postOrderTraversal(treeNode);
+        System.out.println("=============");
     }
 
     /**
@@ -55,19 +61,30 @@ public class TreeOperate {
      * 例如：输入前序遍历数列{1, 2, 4, 7, 3, 5, 6, 8}
      * 和中序遍历数列{4, 7, 2, 1, 5, 3, 8, 6}, 则重建二叉树
      * 树节点定义为TreeNode
+     *
+     * 思路：前序遍历的第一个元素一定是根节点
+     * 在中序遍历中找到根节点，则根节点前面的就是所有的左子节点，根节点跟后面的就是所有的右子节点
+     * 此时返回的根节点就是当前前序遍历和中序遍历描述的树
+     * 设置该根节点的左右子节点则传入根节点前面的就是所有的左子节点的前序遍历和中序遍历获取根节点
+     * 和根节点后面的就是所有的右子节点的前序遍历和中序遍历获取根节点
+     * 由此递归下去，直到不再存在遍历数组说明不存在该节点 返回Null
+     *
+     * 总结：1. 掌握前序遍历、中序遍历和后序遍历的方法与规则，能够确定二叉树的基本节点信息
+     *      2. 使用递归可以轻松解决二叉树相关问题
+     *      3. 递归的特点是重复利用一个规则层层递进
      */
-    private static void reconstructingBinaryTree() {
+    private static TreeNode reconstructingBinaryTree() {
         int[] q = {1, 2, 4, 7, 3, 5, 6, 8};
         int[] z = {4, 7, 2, 1, 5, 3, 8, 6};
-
-
+        return getTree(q, z);
     }
 
-    private static TreeNode setTree(int[] q, int[] z) {
-        TreeNode rootTreeNode = new TreeNode();
-        TreeNode leftTreeNode = new TreeNode();
-        TreeNode rightTreeNode = new TreeNode();
+    private static TreeNode getTree(int[] q, int[] z) {
+        if (q.length == 0 || z.length == 0) {
+            return null;
+        }
 
+        TreeNode rootTreeNode = new TreeNode();
         int rootValue = q[0];
         int index = -1;
         for (int i = 0; i < z.length; i++) {
@@ -78,9 +95,55 @@ public class TreeOperate {
         if (index == -1) {
             throw new RuntimeException("wrong array");
         }
-
-//        Arrays.copyOf();
+        rootTreeNode.setValue(rootValue);
+        // 重复利用一个规则层层递进
+        rootTreeNode.setLeftNode(getTree(Arrays.copyOfRange(q, 1, index + 1), Arrays.copyOfRange(z, 0, index)));
+        rootTreeNode.setRightNode(getTree(Arrays.copyOfRange(q, index + 1, q.length), Arrays.copyOfRange(z, index + 1, z.length)));
 
         return rootTreeNode;
+    }
+
+    /**
+     * 前序遍历：先访问根节点，在访问左子节点，再访问右子节点
+     * @param treeNode 节点
+     *
+     * 人肉去计算遍历的时候要使用层的概念 到这一层往下执行完再回来
+     */
+    private static void preorderTraversal(TreeNode treeNode) {
+        System.out.println(" " + treeNode.getValue());
+        if (treeNode.getLeftNode() != null) {
+            preorderTraversal(treeNode.getLeftNode());
+        }
+        if (treeNode.getRightNode() != null) {
+            preorderTraversal(treeNode.getRightNode());
+        }
+    }
+
+    /**
+     * 中序遍历：先访问左子节点，再访问根节点，最后访问右子节点
+     * @param treeNode 节点
+     */
+    private static void sequentialTraversal(TreeNode treeNode) {
+        if (treeNode.getLeftNode() != null) {
+            sequentialTraversal(treeNode.getLeftNode());
+        }
+        System.out.println(" " + treeNode.getValue());
+        if (treeNode.getRightNode() != null) {
+            sequentialTraversal(treeNode.getRightNode());
+        }
+    }
+
+    /**
+     * 后序遍历：先访问左子节点，再访问右子节点，最后访问根节点
+     * @param treeNode 节点
+     */
+    private static void postOrderTraversal(TreeNode treeNode) {
+        if (treeNode.getLeftNode() != null) {
+            postOrderTraversal(treeNode.getLeftNode());
+        }
+        if (treeNode.getRightNode() != null) {
+            postOrderTraversal(treeNode.getRightNode());
+        }
+        System.out.println(" " + treeNode.getValue());
     }
 }
