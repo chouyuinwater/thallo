@@ -10,7 +10,7 @@ public class SortingOperate {
         array = bubbleSortOptimization(array);
 //        array = selctionSort(array);
         array = insertSort(array);
-
+        array = shellSort(array);
         for (int i = 0; i < array.length; i++) {
             System.out.println(array[i]);
         }
@@ -134,6 +134,45 @@ public class SortingOperate {
                     // 因为是有序数组
                     break;
                 }
+            }
+        }
+        return array;
+    }
+
+    /**
+     * 希尔排序
+     *
+     * @param array 待排序数组
+     * @return 排序数组
+     * <p>
+     * 在要排序的一组数中，根据某一增量分为若干子序列，并对子序列分别进行插入排序。
+     * 然后逐渐将增量减小,并重复上述过程。直至增量为1,此时数据序列基本有序,最后进行插入排序。
+     */
+    public static int[] shellSort(int[] array) {
+
+        int increase = array.length;
+        while (true) {
+            increase = increase / 2;
+
+            // 按增长幅度循环，增长幅度相当于取数次数
+            for (int i = 0; i < increase; i++) {
+                // 循环一次取数的数组
+                for (int j = i + increase; j < array.length; j += increase) {
+                    // 执行插入排序 最后一个数字向前面的数组插入
+                    for (int k = j; k > i; k -= increase) {
+                        if (array[k] < array[k - increase]) {
+                            int temp = array[k];
+                            array[k] = array[k - increase];
+                            array[k - increase] = temp;
+                        } else {
+                            break;
+                        }
+                    }
+                }
+            }
+            // 最后一次总体插入排序执行完毕后返回
+            if (increase == 1) {
+                break;
             }
         }
         return array;
