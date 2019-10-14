@@ -18,6 +18,7 @@ public class SortingOperate {
 
     /**
      * 冒泡排序
+     * O(n2)
      *
      * @param array 等待排序数组
      * @return 排序数组
@@ -81,6 +82,7 @@ public class SortingOperate {
 
     /**
      * 选择排序
+     * O(n2)
      *
      * @param array 待排序数组
      * @return排序数组
@@ -112,6 +114,7 @@ public class SortingOperate {
 
     /**
      * 插入排序
+     * O(n2)
      *
      * @param array 待排序数组
      * @return 排序数组
@@ -141,6 +144,7 @@ public class SortingOperate {
 
     /**
      * 希尔排序
+     * O(n1.5)
      *
      * @param array 待排序数组
      * @return 排序数组
@@ -176,5 +180,9 @@ public class SortingOperate {
             }
         }
         return array;
+    }
+
+    public static int[] Quicksort(int[] array) {
+
     }
 }
