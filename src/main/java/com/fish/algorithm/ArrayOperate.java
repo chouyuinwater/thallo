@@ -94,4 +94,15 @@ public class ArrayOperate {
             System.out.println(A1[i]);
         }
     }
+
+    /**
+     * 求最大连续子数组
+     *
+     * 最大子数组问题的数组一定是包含负数的，否则最大连续子数组就是数组本身：）
+     * 找出数组中间值
+     * 比较中间值左面的最大子数组、跨越中间值的最大子数组、中间值右面的最大子数组谁大
+     */
+    private void maxSubArray() {
+
+    }
 }

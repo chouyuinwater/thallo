@@ -6,11 +6,12 @@ package com.fish.algorithm;
 public class SortingOperate {
     public static void main(String[] args) {
         int[] array = {7, 2, 9, 3, 6, 2, 0, 5};
-        array = bubbleSort(array);
-        array = bubbleSortOptimization(array);
+//        array = bubbleSort(array);
+//        array = bubbleSortOptimization(array);
 //        array = selctionSort(array);
-        array = insertSort(array);
-        array = shellSort(array);
+//        array = insertSort(array);
+//        array = shellSort(array);
+        quicksort1(array, 0, array.length - 1);
         for (int i = 0; i < array.length; i++) {
             System.out.println(array[i]);
         }
@@ -182,7 +183,46 @@ public class SortingOperate {
         return array;
     }
 
-    public static int[] Quicksort(int[] array) {
+    public static void quicksort(int[] array, int p, int r) {
+        if (p < r) {
 
+
+        }
+    }
+
+    /**
+     * 快速排序算法
+     * 算法思想：选出一个元素，将大于这个元素的数和小于这个元素的数分别挑选出来
+     * 这就相当于在原址确定了该元素的位置
+     * 再依次递归计算大于这个元素的数组和小于元素的数组最终确定所有元素的位置
+     *
+     * 总结：在执行循环时一定要选好一个移动标识，可选择一个记录标识配合。
+     * 交换是原址排序都要采用的方法
+     * 分治策略思想很重要：
+     * 1. 分解 将问题分解成一些子问题，子问题的形式与原问题一样；
+     * 2. 解决 递归的求解出子问题；
+     * 3. 合并 将子问题的解组合成原问题的解
+     * @param array
+     * @param p
+     * @param r
+     */
+    public static void quicksort1(int[] array, int p, int r) {
+        if (p < r) {
+            int key = array[r];
+            int i = p - 1;
+            for (int j = p; j < r; j++) {
+                if (array[j] < key) {
+                    int temp = array[i + 1];
+                    array[i + 1] = array[j];
+                    array[j] = temp;
+                    i++;
+                }
+            }
+            int temp = array[i + 1];
+            array[i + 1] = array[r];
+            array[r] = temp;
+            quicksort1(array, p, i);
+            quicksort1(array, i + 2, r);
+        }
     }
 }
