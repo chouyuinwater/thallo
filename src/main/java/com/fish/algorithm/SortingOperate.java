@@ -196,9 +196,9 @@ public class SortingOperate {
      * 1. 分解 将问题分解成一些子问题，子问题的形式与原问题一样；
      * 2. 解决 递归的求解出子问题；
      * 3. 合并 将子问题的解组合成原问题的解
-     * @param array
-     * @param p
-     * @param r
+     * @param array 数组
+     * @param p 数组开始
+     * @param r 数组结束
      */
     public static void quicksort1(int[] array, int p, int r) {
         if (p < r) {
@@ -260,5 +260,12 @@ public class SortingOperate {
         array[r] = key;
         quicksort(array, q, i);
         quicksort(array, i + 2, r);
+    }
+
+    /**
+     *
+     */
+    public void mergeSort(int[] array, int q, int r) {
+
     }
 }
