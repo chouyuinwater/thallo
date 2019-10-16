@@ -11,6 +11,7 @@ public class SortingOperate {
 //        array = selctionSort(array);
 //        array = insertSort(array);
 //        array = shellSort(array);
+//        quicksort(array, 0, array.length - 1);
         quicksort1(array, 0, array.length - 1);
         for (int i = 0; i < array.length; i++) {
             System.out.println(array[i]);
@@ -183,13 +184,6 @@ public class SortingOperate {
         return array;
     }
 
-    public static void quicksort(int[] array, int p, int r) {
-        if (p < r) {
-
-
-        }
-    }
-
     /**
      * 快速排序算法
      * 算法思想：选出一个元素，将大于这个元素的数和小于这个元素的数分别挑选出来
@@ -224,5 +218,47 @@ public class SortingOperate {
             quicksort1(array, p, i);
             quicksort1(array, i + 2, r);
         }
+    }
+    /**
+     * 快速排序
+     *
+     * 我的思路是两端向中间进发 两个标志位相同功能
+     * 算法的思路是从一端出发，两个标志位不同功能，一个是大小分界指针，一个是循环计数指针
+     *
+     *
+     *
+     * @param array
+     * @return
+     */
+    public static void quicksort(int[] array, int q, int r) {
+        if (array == null || q >= r || q < 0 || r >= array.length) {
+            return;
+        }
+        if (q == r - 1) {
+            if (array[q] > array[r]) {
+                int temp = array[r];
+                array[r] = array[q];
+                array[q] = temp;
+            }
+            return;
+        }
+        int key = array[r];
+        int i = q;
+        int j = r;
+        while (i != j) {
+            if (array[i] > key) {
+                int temp = array[i];
+                array[i] = array[j - 1];
+                array[j - 1] = temp;
+                j--;
+            } else {
+                i++;
+            }
+        }
+        array[i + 1] = key;
+        array[i + 1] = array[r];
+        array[r] = key;
+        quicksort(array, q, i);
+        quicksort(array, i + 2, r);
     }
 }
