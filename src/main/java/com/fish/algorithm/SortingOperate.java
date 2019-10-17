@@ -1,5 +1,7 @@
 package com.fish.algorithm;
 
+import java.util.Arrays;
+
 /**
  * 排序基础算法
  */
@@ -12,7 +14,8 @@ public class SortingOperate {
 //        array = insertSort(array);
 //        array = shellSort(array);
 //        quicksort(array, 0, array.length - 1);
-        quicksort1(array, 0, array.length - 1);
+//        quicksort1(array, 0, array.length - 1);
+        mergeSort(array, 0, array.length - 1);
         for (int i = 0; i < array.length; i++) {
             System.out.println(array[i]);
         }
@@ -263,9 +266,45 @@ public class SortingOperate {
     }
 
     /**
-     *
+     * 归并排序
      */
-    public void mergeSort(int[] array, int q, int r) {
+    public static void mergeSort(int[] array, int q, int r) {
 
+        if (q < r) {
+            int p = (q + r) / 2;
+
+            mergeSort(array, q, p);
+            mergeSort(array, p + 1, r);
+
+            int leftLength = p - q + 1;
+            int rightLength = r - p;
+
+            int[] leftArray = Arrays.copyOfRange(array, q, p + 1);
+            int[] rightArray = Arrays.copyOfRange(array, p + 1, r + 1);
+
+            int leftKey = 0;
+            int rightKey = 0;
+            for (int i = q; i < (r + 1); i++) {
+                if (leftKey < leftLength && rightKey < rightLength) {
+                    if (leftArray[leftKey] > rightArray[rightKey]) {
+                        array[i] = rightArray[rightKey];
+                        rightKey++;
+                        continue;
+                    }
+                    array[i] = leftArray[leftKey];
+                    leftKey++;
+                    continue;
+                }
+                if (leftKey < leftLength) {
+                    array[i] = leftArray[leftKey];
+                    leftKey++;
+                    continue;
+                }
+                if (rightKey < rightLength) {
+                    array[i] = rightArray[rightKey];
+                    rightKey++;
+                }
+            }
+        }
     }
 }
