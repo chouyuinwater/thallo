@@ -6,6 +6,8 @@ import java.util.LinkedList;
 
 /**
  * 链表相关算法
+ *
+ * 链表 - 单链表 和 双链表？
  */
 public class LinkListOperate {
 
@@ -52,5 +54,19 @@ public class LinkListOperate {
         nodeList = turnLinkedList(nodeList);
         nodeList.addFirst(lastNode);
         return nodeList;
+    }
+
+    /**
+     * 第十八题
+     * 删除链表节点
+     *
+     * 不需要遍历链表，将要删除的节点的下一个节点复制到删除节点，再删除下一个节点
+     * 如果链表只有一个节点删除头节点
+     * 如果删除的是尾节点则直接删除
+     *
+     * 返回头节点
+     */
+    private static Node deleteNode(Node headNode, Node delNode) {
+        return headNode;
     }
 }

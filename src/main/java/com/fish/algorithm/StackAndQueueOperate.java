@@ -19,9 +19,19 @@ public class StackAndQueueOperate {
         return integerQueue;
     }
 
+    /**
+     * 双栈实现队列
+     */
     private class TwoStackMakeOneQueue {
         private Stack stack1 = new Stack();
         private Stack stack2 = new Stack();
+
+    }
+
+    /**
+     * 双队列实现栈
+     */
+    private class TwoQueueMakeStack {
 
     }
 }
