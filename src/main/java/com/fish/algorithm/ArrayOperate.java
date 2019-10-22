@@ -66,6 +66,7 @@ public class ArrayOperate {
      *
      * 总结：1. 在处理循环时可以考虑使用while来解决一些for循环解决不了的问题（本题中如果FOR循环数组A2则无法几角问题）
      *       2. 循环解决数组问题可以考虑从后向前循环解决问题，减少数组移动。
+     *       3. 在一个数组内进行插入可以考虑从后向前。
      */
     private static void orderedTwoDimensionalArrayInsertion() {
 //        int[] A1 = {1, 4, 6, 8, 9};

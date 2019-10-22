@@ -42,8 +42,65 @@ import java.util.Arrays;
  *
  */
 public class TreeOperate {
+
+    private static TreeNode<String> initTree;
+
+    static {
+        initTree();
+    }
+
+    /**
+     * 初始化二叉树
+     *
+     *             a
+     *      b            c
+     *  d      e     f      g
+     *       h   i
+     *
+     * 前序遍历 a, b, d, e, h, i, c, f, g
+     * 中序遍历 d, b, h, e, i, a, f, c, g
+     * 后序遍历 d, h, i, e, b, f, g, c, a
+     *
+     */
+    private static void initTree() {
+        TreeNode[] treeArray = new TreeNode[]{
+                new TreeNode<>("a"),
+                new TreeNode<>("b"),
+                new TreeNode<>("c"),
+                new TreeNode<>("d"),
+                new TreeNode<>("e"),
+                new TreeNode<>("f"),
+                new TreeNode<>("g"),
+                new TreeNode<>("h"),
+                new TreeNode<>("i"),
+        };
+        treeArray[0].setLeftNode(treeArray[1]);
+        treeArray[0].setRightNode(treeArray[2]);
+
+        treeArray[1].setLeftNode(treeArray[3]);
+        treeArray[1].setRightNode(treeArray[4]);
+        treeArray[1].setParentNode(treeArray[0]);
+
+        treeArray[2].setLeftNode(treeArray[5]);
+        treeArray[2].setRightNode(treeArray[6]);
+        treeArray[2].setParentNode(treeArray[0]);
+
+        treeArray[3].setParentNode(treeArray[1]);
+        treeArray[4].setParentNode(treeArray[1]);
+        treeArray[5].setParentNode(treeArray[2]);
+        treeArray[6].setParentNode(treeArray[2]);
+
+        treeArray[4].setLeftNode(treeArray[7]);
+        treeArray[4].setRightNode(treeArray[8]);
+
+        treeArray[7].setParentNode(treeArray[4]);
+        treeArray[8].setParentNode(treeArray[4]);
+    }
+    
+
     public static void main(String[] args) {
-        TreeNode treeNode = reconstructingBinaryTree();
+        
+        TreeNode<Integer> treeNode = reconstructingBinaryTree();
         System.out.println("=============");
         preorderTraversal(treeNode);
         System.out.println("=============");
@@ -60,7 +117,7 @@ public class TreeOperate {
      * 假设输入的前序遍历和中序遍历的结果都不含重复的的数字
      * 例如：输入前序遍历数列{1, 2, 4, 7, 3, 5, 6, 8}
      * 和中序遍历数列{4, 7, 2, 1, 5, 3, 8, 6}, 则重建二叉树
-     * 树节点定义为TreeNode
+     * 树节点定义为TreeNode<Integer>
      *
      * 思路：前序遍历的第一个元素一定是根节点
      * 在中序遍历中找到根节点，则根节点前面的就是所有的左子节点，根节点跟后面的就是所有的右子节点
@@ -73,18 +130,18 @@ public class TreeOperate {
      *      2. 使用递归可以轻松解决二叉树相关问题
      *      3. 递归的特点是重复利用一个规则层层递进
      */
-    private static TreeNode reconstructingBinaryTree() {
+    private static TreeNode<Integer> reconstructingBinaryTree() {
         int[] q = {1, 2, 4, 7, 3, 5, 6, 8};
         int[] z = {4, 7, 2, 1, 5, 3, 8, 6};
         return getTree(q, z);
     }
 
-    private static TreeNode getTree(int[] q, int[] z) {
+    private static TreeNode<Integer> getTree(int[] q, int[] z) {
         if (q.length == 0 || z.length == 0) {
             return null;
         }
 
-        TreeNode rootTreeNode = new TreeNode();
+        TreeNode<Integer> rootTreeNode = new TreeNode<>();
         int rootValue = q[0];
         int index = -1;
         for (int i = 0; i < z.length; i++) {
@@ -109,7 +166,7 @@ public class TreeOperate {
      *
      * 人肉去计算遍历的时候要使用层的概念 到这一层往下执行完再回来
      */
-    private static void preorderTraversal(TreeNode treeNode) {
+    private static void preorderTraversal(TreeNode<Integer> treeNode) {
         System.out.println(" " + treeNode.getValue());
         if (treeNode.getLeftNode() != null) {
             preorderTraversal(treeNode.getLeftNode());
@@ -123,7 +180,7 @@ public class TreeOperate {
      * 中序遍历：先访问左子节点，再访问根节点，最后访问右子节点
      * @param treeNode 节点
      */
-    private static void sequentialTraversal(TreeNode treeNode) {
+    private static void sequentialTraversal(TreeNode<Integer> treeNode) {
         if (treeNode.getLeftNode() != null) {
             sequentialTraversal(treeNode.getLeftNode());
         }
@@ -137,7 +194,7 @@ public class TreeOperate {
      * 后序遍历：先访问左子节点，再访问右子节点，最后访问根节点
      * @param treeNode 节点
      */
-    private static void postOrderTraversal(TreeNode treeNode) {
+    private static void postOrderTraversal(TreeNode<Integer> treeNode) {
         if (treeNode.getLeftNode() != null) {
             postOrderTraversal(treeNode.getLeftNode());
         }
@@ -145,5 +202,9 @@ public class TreeOperate {
             postOrderTraversal(treeNode.getRightNode());
         }
         System.out.println(" " + treeNode.getValue());
+    }
+
+    private static void seachNode(TreeNode treeNode) {
+        
     }
 }

@@ -267,6 +267,8 @@ public class SortingOperate {
 
     /**
      * 归并排序
+     *
+     * 归并排序是典型的遵循分治法的算法
      */
     public static void mergeSort(int[] array, int q, int r) {
 
