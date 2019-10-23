@@ -1,5 +1,7 @@
 package com.fish.algorithm;
 
+import com.fish.tool.JsonUtil;
+
 import java.util.Arrays;
 
 /**
@@ -10,15 +12,13 @@ public class SortingOperate {
         int[] array = {7, 2, 9, 3, 6, 2, 0, 5};
 //        array = bubbleSort(array);
 //        array = bubbleSortOptimization(array);
-//        array = selctionSort(array);
+        array = selctionSort(array);
 //        array = insertSort(array);
 //        array = shellSort(array);
 //        quicksort(array, 0, array.length - 1);
 //        quicksort1(array, 0, array.length - 1);
-        mergeSort(array, 0, array.length - 1);
-        for (int i = 0; i < array.length; i++) {
-            System.out.println(array[i]);
-        }
+//        mergeSort(array, 0, array.length - 1);
+        System.out.println(JsonUtil.toJson(array));
     }
 
     /**
@@ -133,7 +133,7 @@ public class SortingOperate {
             return null;
         }
         for (int i = 0; i < array.length - 1; i++) {
-            for (int j = i + 1; j < array.length; j++) {
+            for (int j = i + 1; j > 0; j--) {
                 if (array[j] < array[j - 1]) {
                     int temp = array[j];
                     array[j] = array[j - 1];

@@ -7,7 +7,7 @@ import java.util.LinkedList;
 /**
  * 链表相关算法
  *
- * 链表 - 单链表 和 双链表？
+ * 链表 - 单向链表、双端链表、有序链表、双向链表以及有迭代器的链表
  */
 public class LinkListOperate {
 
