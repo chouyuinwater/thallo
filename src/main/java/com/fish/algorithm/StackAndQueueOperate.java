@@ -22,10 +22,24 @@ public class StackAndQueueOperate {
     /**
      * 双栈实现队列
      */
-    private class TwoStackMakeOneQueue {
-        private Stack stack1 = new Stack();
-        private Stack stack2 = new Stack();
+    private class TwoStackMakeOneQueue<T> {
+        private Stack<T> stack1 = new Stack<>();
+        private Stack<T> stack2 = new Stack<>();
 
+        public T offer(T element) {
+            while (!stack2.isEmpty()) {
+                stack1.push(stack2.pop());
+            }
+            stack1.push(element);
+            return element;
+        }
+
+        public T pool() {
+            while (!stack1.isEmpty()) {
+                stack2.push(stack1.pop());
+            }
+            return stack2.pop();
+        }
     }
 
     /**
