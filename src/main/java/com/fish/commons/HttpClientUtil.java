@@ -23,11 +23,11 @@ import java.util.UUID;
 
 public class HttpClientUtil {
 
-    private static final String SECRET_KEY1 = "3iJ50tJtX0R4P2j6YlZhcx0MqOh59IE5";
+    private static final String SECRET_KEY1 = "11";
 
-    private static final String SECRET_KEY2 = "FmkgrGxDLV0X5Tqr8dKLABzXNIyjDb2y";
+    private static final String SECRET_KEY2 = "11";
 
-    private static final String TEST_URL = "https://test.airmailcontrol.com/gvs-clients-api/v1/messages";
+    private static final String TEST_URL = "11";
 
     private static final String HTTP_VERB_POST = "POST";
 
@@ -35,7 +35,7 @@ public class HttpClientUtil {
 
     private static final String PLATFORM_ID = "";
 
-    private static final String GVS_ID = "gvs";
+    private static final String GVS_ID = "111";
 
     public static void main(String[] args) {
 //        httpClientPost();
@@ -61,14 +61,14 @@ public class HttpClientUtil {
     public static void httpClientPost() {
         try {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("epOrderId", "89436QWER98");
+            jsonObject.addProperty("epOrderId", "11");
             String checksum = getChecksum(jsonObject.toString(), HTTP_VERB_POST, TEST_URL, PLATFORM_ID);
             CloseableHttpClient httpclient = HttpClients.createDefault();
             HttpPost httppost = new HttpPost(TEST_URL);
             httppost.addHeader("platformId", PLATFORM_ID);
             httppost.addHeader("checksum", checksum);
             httppost.addHeader("msgId", UUID.randomUUID().toString());
-            httppost.addHeader("msgType", "EP_GVS_Order_Status");
+            httppost.addHeader("msgType", "111");
 
             // 设置超时时间
             RequestConfig requestConfig = RequestConfig.custom()
