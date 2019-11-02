@@ -1,7 +1,8 @@
 package com.fish.design.model.behavior.strategy;
 
-import model.behavior.strategy.impl.AddInt;
-import model.behavior.strategy.impl.PlusInt;
+
+import com.fish.design.model.behavior.strategy.impl.AddInt;
+import com.fish.design.model.behavior.strategy.impl.PlusInt;
 
 public class StrategyMain {
     /**

@@ -1,6 +1,6 @@
 package com.fish.design.model.structure.decorator.concrete;
 
-import model.structure.decorator.Component;
+import com.fish.design.model.structure.decorator.Component;
 
 /**
  * 具体的组件

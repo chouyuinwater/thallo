@@ -1,6 +1,7 @@
 package com.fish.design.model.behavior.strategy.impl;
 
-import model.behavior.strategy.Strategy;
+
+import com.fish.design.model.behavior.strategy.Strategy;
 
 public class PlusInt implements Strategy {
     @Override

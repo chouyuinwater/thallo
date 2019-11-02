@@ -2,6 +2,8 @@ package com.fish.design;
 
 /**
  *  引言
+ *
+ *  https://design-patterns.readthedocs.io/zh_CN/latest/
  */
 public class Introduction {
     /*

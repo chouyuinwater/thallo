@@ -1,7 +1,7 @@
 package com.fish.design.model.structure.decorator.decorat.impl;
 
-import model.structure.decorator.Component;
-import model.structure.decorator.decorat.Decorator;
+import com.fish.design.model.structure.decorator.Component;
+import com.fish.design.model.structure.decorator.decorat.Decorator;
 
 /**
  * 装饰组件的类。调用组件的业务，同时添加装饰内容

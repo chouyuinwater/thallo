@@ -1,12 +1,13 @@
 package com.fish.design.model.create.bulid.bulider;
 
-import model.create.bulid.product.RealSuit;
-import model.create.bulid.product.Suit;
-import product.Product;
-import product.impl.BoseHigh;
-import product.impl.DellQ27;
-import product.impl.MonsterHunterWorld;
-import product.impl.PlayStation4;
+
+import com.fish.design.model.create.bulid.product.RealSuit;
+import com.fish.design.model.create.bulid.product.Suit;
+import com.fish.design.product.Product;
+import com.fish.design.product.impl.BoseHigh;
+import com.fish.design.product.impl.DellQ27;
+import com.fish.design.product.impl.MonsterHunterWorld;
+import com.fish.design.product.impl.PlayStation4;
 
 import java.util.ArrayList;
 import java.util.List;

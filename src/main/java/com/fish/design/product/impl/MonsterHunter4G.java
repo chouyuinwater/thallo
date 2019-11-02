@@ -1,6 +1,6 @@
 package com.fish.design.product.impl;
 
-import product.Game;
+import com.fish.design.product.Game;
 
 public class MonsterHunter4G  implements Game {
     @Override

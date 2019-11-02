@@ -1,6 +1,6 @@
 package com.fish.design.model.structure.decorator.decorat;
 
-import model.structure.decorator.Component;
+import com.fish.design.model.structure.decorator.Component;
 
 /**
  * 装饰类的父类 引入组件

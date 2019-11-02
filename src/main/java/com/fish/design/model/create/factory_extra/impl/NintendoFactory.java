@@ -1,11 +1,12 @@
 package com.fish.design.model.create.factory_extra.impl;
 
-import common.Contant;
-import model.create.factory_extra.Factory;
-import product.Game;
-import product.impl.FireEmblemAwakening;
-import product.impl.FireEmblemIf;
-import product.impl.FireEmblemRadiantDawn;
+import com.fish.design.common.Contant;
+
+import com.fish.design.model.create.factory_extra.Factory;
+import com.fish.design.product.Game;
+import com.fish.design.product.impl.FireEmblemAwakening;
+import com.fish.design.product.impl.FireEmblemIf;
+import com.fish.design.product.impl.FireEmblemRadiantDawn;
 
 public class NintendoFactory implements Factory {
 

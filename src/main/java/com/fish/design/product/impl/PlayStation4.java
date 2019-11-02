@@ -1,6 +1,6 @@
 package com.fish.design.product.impl;
 
-import product.Console;
+import com.fish.design.product.Console;
 
 import java.util.List;
 

@@ -1,11 +1,13 @@
 package com.fish.design.model.create.factory.method.impl;
 
-import common.Contant;
-import model.create.factory.method.Factory;
-import product.Game;
-import product.impl.MonsterHunter4G;
-import product.impl.MonsterHunterWorld;
-import product.impl.MonsterHunterXX;
+import com.fish.design.common.Contant;
+
+
+import com.fish.design.model.create.factory.method.Factory;
+import com.fish.design.product.Game;
+import com.fish.design.product.impl.MonsterHunter4G;
+import com.fish.design.product.impl.MonsterHunterWorld;
+import com.fish.design.product.impl.MonsterHunterXX;
 
 public class CapcomFactory implements Factory {
 

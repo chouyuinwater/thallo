@@ -1,6 +1,6 @@
 package com.fish.design.model.structure.bridge.impl;
 
-import model.structure.bridge.Ink;
+import com.fish.design.model.structure.bridge.Ink;
 
 public class BlueInk implements Ink {
     @Override

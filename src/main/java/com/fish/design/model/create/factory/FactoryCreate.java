@@ -1,9 +1,9 @@
 package com.fish.design.model.create.factory;
 
-import common.Contant;
-import model.create.factory.method.Factory;
-import model.create.factory.method.impl.CapcomFactory;
-import model.create.factory.method.impl.NintendoFactory;
+import com.fish.design.common.Contant;
+import com.fish.design.model.create.factory.method.Factory;
+import com.fish.design.model.create.factory.method.impl.CapcomFactory;
+import com.fish.design.model.create.factory.method.impl.NintendoFactory;
 
 public class FactoryCreate {
 

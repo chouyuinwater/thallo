@@ -1,6 +1,6 @@
 package com.fish.design.product.impl;
 
-import product.Sound;
+import com.fish.design.product.Sound;
 
 public class BoseNormal implements Sound {
     @Override

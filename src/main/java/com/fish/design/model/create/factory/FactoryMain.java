@@ -1,8 +1,8 @@
 package com.fish.design.model.create.factory;
 
-import common.Contant;
-import model.create.factory.method.Factory;
-import product.Game;
+import com.fish.design.common.Contant;
+import com.fish.design.model.create.factory.method.Factory;
+import com.fish.design.product.Game;
 
 /**
  * 工厂模式

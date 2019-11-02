@@ -1,14 +1,14 @@
 package com.fish.design.model.create.abs_factory;
 
-import model.create.abs_factory.factory.Factory;
-import product.Console;
-import product.Display;
-import product.Game;
-import product.Sound;
-import product.impl.BoseHigh;
-import product.impl.DellQ25;
-import product.impl.MonsterHunterXX;
-import product.impl.Switch;
+import com.fish.design.model.create.abs_factory.factory.Factory;
+import com.fish.design.product.Console;
+import com.fish.design.product.Display;
+import com.fish.design.product.Game;
+import com.fish.design.product.Sound;
+import com.fish.design.product.impl.BoseHigh;
+import com.fish.design.product.impl.DellQ25;
+import com.fish.design.product.impl.MonsterHunterXX;
+import com.fish.design.product.impl.Switch;
 
 public class NintendoPiggyFactory implements Factory {
     @Override

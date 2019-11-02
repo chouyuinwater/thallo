@@ -1,6 +1,8 @@
 package com.fish.design.model.create.bulid.product;
 
-import product.Product;
+
+
+import com.fish.design.product.Product;
 
 import java.util.List;
 

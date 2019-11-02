@@ -1,14 +1,15 @@
 package com.fish.design.model.create.abs_factory;
 
-import model.create.abs_factory.factory.Factory;
-import product.Console;
-import product.Display;
-import product.Game;
-import product.Sound;
-import product.impl.BoseNormal;
-import product.impl.DellQ27;
-import product.impl.MonsterHunterWorld;
-import product.impl.PlayStation4;
+
+import com.fish.design.model.create.abs_factory.factory.Factory;
+import com.fish.design.product.Console;
+import com.fish.design.product.Display;
+import com.fish.design.product.Game;
+import com.fish.design.product.Sound;
+import com.fish.design.product.impl.BoseNormal;
+import com.fish.design.product.impl.DellQ27;
+import com.fish.design.product.impl.MonsterHunterWorld;
+import com.fish.design.product.impl.PlayStation4;
 
 public class SonyYoungerFactory implements Factory {
     @Override

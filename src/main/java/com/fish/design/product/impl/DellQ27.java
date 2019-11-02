@@ -1,6 +1,6 @@
 package com.fish.design.product.impl;
 
-import product.Display;
+import com.fish.design.product.Display;
 
 public class DellQ27 implements Display {
     @Override

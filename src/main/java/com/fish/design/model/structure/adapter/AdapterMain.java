@@ -1,7 +1,7 @@
 package com.fish.design.model.structure.adapter;
 
-import model.structure.adapter.impl.Adaptee;
-import model.structure.adapter.impl.Adapter;
+import com.fish.design.model.structure.adapter.impl.Adaptee;
+import com.fish.design.model.structure.adapter.impl.Adapter;
 
 import java.util.ArrayList;
 import java.util.List;

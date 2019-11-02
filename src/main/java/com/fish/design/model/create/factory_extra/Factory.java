@@ -1,6 +1,6 @@
 package com.fish.design.model.create.factory_extra;
 
-import product.Game;
+import com.fish.design.product.Game;
 
 public interface Factory {
     Game getGame(String name);

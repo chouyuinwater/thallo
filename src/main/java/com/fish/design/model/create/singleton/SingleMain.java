@@ -1,6 +1,6 @@
 package com.fish.design.model.create.singleton;
 
-import product.impl.PlayStation4;
+import com.fish.design.product.impl.PlayStation4;
 
 public class SingleMain {
     public static void main(String[] args) {

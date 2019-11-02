@@ -1,7 +1,7 @@
 package com.fish.design.model.structure.decorator.decorat.impl;
 
-import model.structure.decorator.Component;
-import model.structure.decorator.decorat.Decorator;
+import com.fish.design.model.structure.decorator.Component;
+import com.fish.design.model.structure.decorator.decorat.Decorator;
 
 public class ConcreteDecoratorB extends Decorator {
     public ConcreteDecoratorB(Component component) {

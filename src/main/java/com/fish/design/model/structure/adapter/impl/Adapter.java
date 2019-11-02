@@ -1,6 +1,6 @@
 package com.fish.design.model.structure.adapter.impl;
 
-import model.structure.adapter.Target;
+import com.fish.design.model.structure.adapter.Target;
 
 import java.util.Arrays;
 import java.util.List;
