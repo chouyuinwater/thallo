@@ -1,8 +1,8 @@
 package com.fish.design.model.structure.decorator;
 
-import model.structure.decorator.concrete.ConcreteComponentA;
-import model.structure.decorator.decorat.impl.ConcreteDecoratorA;
-import model.structure.decorator.decorat.impl.ConcreteDecoratorB;
+import com.fish.design.model.structure.decorator.concrete.ConcreteComponentA;
+import com.fish.design.model.structure.decorator.decorat.impl.ConcreteDecoratorA;
+import com.fish.design.model.structure.decorator.decorat.impl.ConcreteDecoratorB;
 
 public class DecoratorMain {
     public static void main(String[] args) {
