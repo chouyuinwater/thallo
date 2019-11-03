@@ -3,7 +3,7 @@ package com.fish.design.model.structure.proxy;
 /**
  * 代理类
  */
-public class Proxy implements Subject {
+public class ProxySubject implements Subject {
 
     private Subject subject;
     @Override
@@ -16,7 +16,7 @@ public class Proxy implements Subject {
         System.out.println("World!");
     }
 
-    public Proxy(Subject subject) {
+    public ProxySubject(Subject subject) {
         this.subject = subject;
     }
 }
