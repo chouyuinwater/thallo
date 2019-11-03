@@ -20,8 +20,6 @@ public class PersonInvocationHandler<T> implements InvocationHandler {
         System.out.println("Proxy is HERE!");
         method.invoke(target, args);
         System.out.println("POWER is HERE!");
-
-
         return null;
     }
 }
