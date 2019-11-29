@@ -189,6 +189,7 @@ public class SortingOperate {
 
     /**
      * 快速排序算法
+     * O(nlogn)
      * 算法思想：选出一个元素，将大于这个元素的数和小于这个元素的数分别挑选出来
      * 这就相当于在【原址】确定了该元素的位置
      * 再依次递归计算大于这个元素的数组和小于元素的数组最终确定所有元素的位置
@@ -267,8 +268,11 @@ public class SortingOperate {
 
     /**
      * 归并排序
+     * O(nlogn)
      *
      * 归并排序是典型的遵循分治法的算法
+     * 1. 将数组分为两部分进行排序，再讲排序的两部分进行合并
+     * 2. 递归操作1
      */
     public static void mergeSort(int[] array, int q, int r) {
 

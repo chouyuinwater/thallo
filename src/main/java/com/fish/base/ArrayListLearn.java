@@ -28,6 +28,37 @@ public class ArrayListLearn {
          * 4. ArrayList 实现java.io.Serializable 接口，这意味着ArrayList支持序列化，能通过序列化去传输。
          * 5. 和 Vector 不同，ArrayList 中的操作不是线程安全的！所以，建议在单线程中才使用 ArrayList，而在多线程中可以选择 Vector 或者 CopyOnWriteArrayList。
          *
+         * 此无参构造函数将创建一个 DEFAULTCAPACITY_EMPTY_ELEMENTDATA 声明的数组，注意此时初始容量是0，而不是大家以为的 10。
+         * 注意：根据默认构造函数创建的集合，ArrayList list = new ArrayList();此时集合长度是0.
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
          * 为什么ArrayList的最大数组大小是Integer.MAX_VALUE - 8？
          * 我估计是作者为了委托估计出来的8
          * 一般很少看到这个错误, 因为Java使用 int 类型作为数组的下标(index, 索引)。
