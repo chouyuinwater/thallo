@@ -44,6 +44,8 @@ public class ProxyMain {
             saveGeneratedJdkProxyFiles();
             /**
              * 第一种方法: 通过 Proxy.newProxyInstance 方法 获取代理对象
+             *
+             * 一个类一个方法代理了所有委托类的所有方法
              */
             System.out.println("-------------------第一种创建代理类方法--------------");
             //创建一个实例对象，这个对象是被代理的对象，委托类
