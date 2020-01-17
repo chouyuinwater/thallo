@@ -2,7 +2,7 @@ package com.fish.base.type;
 
 import java.math.BigDecimal;
 
-public class BigNumTest {
+public class BigNumberTest {
 
 
 

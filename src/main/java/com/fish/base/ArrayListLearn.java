@@ -60,7 +60,7 @@ public class ArrayListLearn {
          *
          *
          * 为什么ArrayList的最大数组大小是Integer.MAX_VALUE - 8？
-         * 我估计是作者为了委托估计出来的8
+         * 我估计是作者为了稳妥估计出来的8
          * 一般很少看到这个错误, 因为Java使用 int 类型作为数组的下标(index, 索引)。
          * 在Java中, int类型的最大值为 2^31 – 1 = 2,147,483,647。大多数平台的限制都约等于这个值 ——
          * 例如在 64位的 MB Pro 上, Java 1.7 平台可以分配长度为 2,147,483,645, 以及 Integer.MAX_VALUE-2) 的数组。
@@ -70,6 +70,29 @@ public class ArrayListLearn {
          * https://plumbr.io/outofmemoryerror/requested-array-size-exceeds-vm-limit
          *
          */
+
+        // Return the maximum length of an array of BasicType.  The length can passed
+        // to typeArrayOop::object_size(scale, length, header_size) without causing an
+        // overflow. We also need to make sure that this will not overflow a size_t on
+        // 32 bit platforms when we convert it to a byte size.
+//        static int32_t max_array_length(BasicType type) {
+//            // 判断数据类型是否正确
+//            assert(type >= 0 && type < T_CONFLICT, "wrong type");
+//            assert(type2aelembytes(type) != 0, "wrong type");
+//
+//        const size_t max_element_words_per_size_t =
+//                    align_down((SIZE_MAX/HeapWordSize - header_size(type)), MinObjAlignment);
+//        const size_t max_elements_per_size_t =
+//                    HeapWordSize * max_element_words_per_size_t / type2aelembytes(type);
+//            if ((size_t)max_jint < max_elements_per_size_t) {
+//                // It should be ok to return max_jint here, but parts of the code
+//                // (CollectedHeap, Klass::oop_oop_iterate(), and more) uses an int for
+//                // passing around the size (in words) of an object. So, we need to avoid
+//                // overflowing an int when we add the header. See CRs 4718400 and 7110613.
+//                return align_down(max_jint - header_size(type), MinObjAlignment);
+//            }
+//            return (int32_t)max_elements_per_size_t;
+//        }
 
     }
 }

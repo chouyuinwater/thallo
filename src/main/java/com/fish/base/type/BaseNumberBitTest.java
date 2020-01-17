@@ -1,7 +1,50 @@
 package com.fish.base.type;
 
-public class ByteLearn {
-    public static void learn() {
+public class BaseNumberBitTest {
+
+    /**
+     * 测试基础数据类型转型
+     *
+     * 结论 位数多的类型转型为位数少的类型会抛弃多余的位数
+     *
+     * long 转 int 抛弃高32位  保留低32位
+     * 这样转型结果很可能出错
+     *
+     * 0x80000000ffffffffL = 1000 0000 0000 0000 0000 0000 0000 0000 1111 1111 1111 1111 1111 1111 1111 1111
+     * 8 = 1000
+     * 最高位是符号位
+     *
+     * @param args
+     */
+    public static void main(String[] args) {
+        long a = Long.MAX_VALUE;
+
+        int b = (int) a;
+//        9223372036854775807
+//       -9223372032559808513
+        a = 8223372036854775807L;
+        a = 0x80000000ffffffffL;
+        a = 0x8f000000ffffffffL;
+        b = (int) a;
+        long c = a & 0x80000000ffffffffL;
+        System.out.println(b);
+        System.out.println(c);
+
+
+        long d = (long) Integer.MAX_VALUE;
+        System.out.println(d);
+
+        int e = Byte.MAX_VALUE;
+        System.out.println(e);
+
+        byte f = (byte) (e << 1);
+        System.out.println(f);
+    }
+
+    /**
+     * 位运算
+     */
+    public void learn() {
         /**
          * Java也提供了一个byte数据类型，并且是基本类型。java byte是做为最小的数字来处理的，因此它的值域被定义为-128~127，也就是signed byte。
          * 下面这篇文章主要给大家介绍了关于java中byte类型的相关资料，需要的朋友可以参考下。
@@ -27,28 +70,5 @@ public class ByteLearn {
          * 127是01111111 然而 -128是10000000 ，看出来一个奇怪的事情。
          *
          */
-
-        // Return the maximum length of an array of BasicType.  The length can passed
-        // to typeArrayOop::object_size(scale, length, header_size) without causing an
-        // overflow. We also need to make sure that this will not overflow a size_t on
-        // 32 bit platforms when we convert it to a byte size.
-//        static int32_t max_array_length(BasicType type) {
-//            // 判断数据类型是否正确
-//            assert(type >= 0 && type < T_CONFLICT, "wrong type");
-//            assert(type2aelembytes(type) != 0, "wrong type");
-//
-//        const size_t max_element_words_per_size_t =
-//                    align_down((SIZE_MAX/HeapWordSize - header_size(type)), MinObjAlignment);
-//        const size_t max_elements_per_size_t =
-//                    HeapWordSize * max_element_words_per_size_t / type2aelembytes(type);
-//            if ((size_t)max_jint < max_elements_per_size_t) {
-//                // It should be ok to return max_jint here, but parts of the code
-//                // (CollectedHeap, Klass::oop_oop_iterate(), and more) uses an int for
-//                // passing around the size (in words) of an object. So, we need to avoid
-//                // overflowing an int when we add the header. See CRs 4718400 and 7110613.
-//                return align_down(max_jint - header_size(type), MinObjAlignment);
-//            }
-//            return (int32_t)max_elements_per_size_t;
-//        }
     }
 }
