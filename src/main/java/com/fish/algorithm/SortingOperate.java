@@ -16,7 +16,7 @@ public class SortingOperate {
 //        array = insertSort(array);
 //        array = shellSort(array);
 //        quicksort(array, 0, array.length - 1);
-//        quicksort1(array, 0, array.length - 1);
+//        quickSortStandard(array, 0, array.length - 1);
 //        mergeSort(array, 0, array.length - 1);
         System.out.println(JsonUtil.toJson(array));
     }
@@ -90,7 +90,7 @@ public class SortingOperate {
      * O(n2)
      *
      * @param array 待排序数组
-     * @return排序数组
+     * @return 排序数组
      *
      * 在长度为N的无序数组中，第一次遍历n-1个数，找到最小的数值与第一个元素交换；
      * 第二次遍历n-2个数，找到最小的数值与第二个元素交换；
@@ -156,6 +156,19 @@ public class SortingOperate {
      * <p>
      * 在要排序的一组数中，根据某一增量分为若干子序列，并对子序列分别进行插入排序。
      * 然后逐渐将增量减小,并重复上述过程。直至增量为1,此时数据序列基本有序,最后进行插入排序。
+     *
+     * 1 2 3 4 5 6 7 8 9 10
+     * increase = 5
+     * 1 5
+     * 2 6
+     * 3 7
+     * 4 9
+     * 5 10
+     * increase = 2
+     * 1 3 5 7 9
+     * 2 4 6 8 10
+     * increase = 1
+     * 1 2 3 4 5 6 7 8 9 10
      */
     public static int[] shellSort(int[] array) {
 
@@ -163,6 +176,7 @@ public class SortingOperate {
         while (true) {
             increase = increase / 2;
 
+            // i 和 j 循环确定了分组的边界范围 k对子数据进行插入排序
             // 按增长幅度循环，增长幅度相当于取数次数
             for (int i = 0; i < increase; i++) {
                 // 循环一次取数的数组
@@ -193,6 +207,32 @@ public class SortingOperate {
      * 算法思想：选出一个元素，将大于这个元素的数和小于这个元素的数分别挑选出来
      * 这就相当于在【原址】确定了该元素的位置
      * 再依次递归计算大于这个元素的数组和小于元素的数组最终确定所有元素的位置
+     * j是扫描标识 i是分界标识
+     * i j         r
+     *   4 2 5 1 6 3
+     * 4 > 3 i不变
+     *
+     * i   j       r
+     *   4 2 5 1 6 3
+     * 2 < 3 i+1 交换位置
+     *
+     *   i   j     r
+     *   2 4 5 1 6 3
+     * 5 > 3 i不变
+     *
+     *   i     j   r
+     *   2 4 5 1 6 3
+     * 1 < 3 i+1 交换位置
+     *
+     *     i     j r
+     *   2 1 5 4 6 3
+     * 6 > 3 i不变 j = r 跳出循环 处理r
+     *
+     *             j
+     *     i       r
+     *   2 1 3 4 6 5
+     * r 已经在正确的位置 从小到大排序
+     * r 前数组和后数组递归快速排序
      *
      * 总结：在执行循环时一定要选好一个移动标识，可选择一个记录标识配合。
      * 交换是原址排序都要采用的方法
@@ -204,7 +244,7 @@ public class SortingOperate {
      * @param p 数组开始
      * @param r 数组结束
      */
-    public static void quicksort1(int[] array, int p, int r) {
+    public static void quickSortStandard(int[] array, int p, int r) {
         if (p < r) {
             int key = array[r];
             int i = p - 1;
@@ -219,8 +259,8 @@ public class SortingOperate {
             int temp = array[i + 1];
             array[i + 1] = array[r];
             array[r] = temp;
-            quicksort1(array, p, i);
-            quicksort1(array, i + 2, r);
+            quickSortStandard(array, p, i);
+            quickSortStandard(array, i + 2, r);
         }
     }
     /**
@@ -275,22 +315,24 @@ public class SortingOperate {
      * 2. 递归操作1
      */
     public static void mergeSort(int[] array, int q, int r) {
-
         if (q < r) {
+            // 数组中间长度
             int p = (q + r) / 2;
-
+            // 排序左半数组
             mergeSort(array, q, p);
+            // 排序右半数组
             mergeSort(array, p + 1, r);
-
+            // 排序完毕后进行合并
             int leftLength = p - q + 1;
             int rightLength = r - p;
-
             int[] leftArray = Arrays.copyOfRange(array, q, p + 1);
             int[] rightArray = Arrays.copyOfRange(array, p + 1, r + 1);
-
+            // 左右半数组循环标识
             int leftKey = 0;
             int rightKey = 0;
+
             for (int i = q; i < (r + 1); i++) {
+                // 左右数组都有未排序数 比较当前循环标识下的数，根据排序规则插入数，插入数的数组循环标识+1
                 if (leftKey < leftLength && rightKey < rightLength) {
                     if (leftArray[leftKey] > rightArray[rightKey]) {
                         array[i] = rightArray[rightKey];
@@ -301,11 +343,13 @@ public class SortingOperate {
                     leftKey++;
                     continue;
                 }
+                // 剩余左数组有未排序数，全部插入
                 if (leftKey < leftLength) {
                     array[i] = leftArray[leftKey];
                     leftKey++;
                     continue;
                 }
+                // 剩余右数组有未排序数，全部插入
                 if (rightKey < rightLength) {
                     array[i] = rightArray[rightKey];
                     rightKey++;
