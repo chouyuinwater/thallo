@@ -5,7 +5,7 @@ package com.fish.algorithm;
  */
 public class ArrayOperate {
     public static void main(String[] args) {
-        orderedTwodimensionalArrayLookup();
+        orderedTwoDimensionalArrayLookup();
 
         orderedTwoDimensionalArrayInsertion();
     }
@@ -29,7 +29,7 @@ public class ArrayOperate {
      * 当解决一个复杂问题是，一个很有效的办法就是从一个具体的为题入手，
      * 通过分析简单的具体例子，试图寻找普遍的规律。出自顺序数据使用排除法，缩小查找范围是一个常用思路。
      */
-    private static void orderedTwodimensionalArrayLookup() {
+    private static void orderedTwoDimensionalArrayLookup() {
         int[][] array = {{1,2,8,9},{2,4,9,12},{4,7,10,13},{6,8,11,15}};
         int key = 7;
 

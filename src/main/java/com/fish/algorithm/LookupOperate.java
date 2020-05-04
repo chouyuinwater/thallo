@@ -8,7 +8,7 @@ public class LookupOperate {
     public static void main(String[] args) {
         int[] array = {7, 2, 9, 3, 6, 2, 0, 5};
 
-        SortingOperate.quicksort1(array, 0, array.length - 1);
+        SortingOperate.quickSortStandard(array, 0, array.length - 1);
         int index = binarySearch(array, 6, 0, array.length - 1);
         System.out.println("index = " + index);
     }
