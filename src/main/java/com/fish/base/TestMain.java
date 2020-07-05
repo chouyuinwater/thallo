@@ -15,6 +15,26 @@ public class TestMain {
 //        stringArrayList = stringArrayList.subList(0, 2);
 //        System.out.println(stringArrayList);
 
+//        instanceTest();
+        String a = new String("a");
+        String b = "a";
+        String c = new String("a");
+        String d = c.intern();
+
+
+        System.out.println(a == b);
+        System.out.println(a == c);
+        System.out.println(b == c);
+        System.out.println(c == d);
+        System.out.println(b == d);
+
+        Integer aa = new Integer("1");
+        Integer bb = new Integer("1");
+        int cc = 1;
+        System.out.println(aa == bb);
+    }
+
+    private static void instanceTest() {
         Byte test = new Byte((byte)1);
         Byte test1 = null;
         Byte test2 = 1;
