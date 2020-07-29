@@ -1,5 +1,10 @@
 package com.fish;
 
+import com.google.gson.Gson;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Test {
     private String name;
 
@@ -12,12 +17,10 @@ public class Test {
     }
 
     public static void main(String[] args) {
-        String str = "收件人邮编(96822)不符合美国邮编规范或渠道不支持该地区:guid=J0100000000000584172";
 
-        // 收件人邮编(96822)不符合美国邮编规范或渠道不支持该地区:guid=J0100000000000584172
-        String ddl = "J0100000000000584172";
-        String replaceStr = ":guid=" + ddl;
-
-        System.out.println(str.replace(replaceStr,""));
+        Gson gson = new Gson();
+        List<String> strings = new ArrayList<>();
+        strings.add("aaaa");
+        System.out.println(gson.toJson(strings));
     }
 }
