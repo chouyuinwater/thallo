@@ -18,6 +18,7 @@ public class SocketServer {
             try {
                 serverSocket = new ServerSocket(8899);
                 Socket socket = serverSocket.accept();
+                System.out.println("connect success: socket: " + socket.getPort() + "|" + socket.getInetAddress() + "|" + socket.getLocalPort() + "|" + socket.getLocalAddress());
                 while (true) {
 
                     InputStream inputStream = socket.getInputStream();

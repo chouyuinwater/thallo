@@ -3,7 +3,7 @@ package com.fish.design.model.structure.proxy;
 import com.fish.design.model.structure.proxy.dynamic.Person;
 import com.fish.design.model.structure.proxy.dynamic.PersonInvocationHandler;
 import com.fish.design.model.structure.proxy.dynamic.SoftwareEngineer;
-import sun.misc.ProxyGenerator;
+//import sun.misc.ProxyGenerator;
 
 import java.io.FileOutputStream;
 import java.lang.reflect.Constructor;
@@ -111,22 +111,22 @@ public class ProxyMain {
          * 第一个参数是 代理类 名 。
          * 第二个参数是 代理类需要实现的接口
          */
-        byte[] classFile = ProxyGenerator.generateProxyClass(className, interfaces);
-        /**
-         * 如果目录不存在就新建所有子目录
-         */
-        Path path1 = Paths.get(pathdir);
-        if (!path1.toFile().exists()){
-            path1.toFile().mkdirs();
-        }
-        String path = pathdir + className + ".class";
-        try (FileOutputStream fos = new FileOutputStream(path)) {
-            fos.write(classFile);
-            fos.flush();
-            System.out.println("代理类class文件写入成功");
-        } catch (Exception e) {
-            System.out.println("写文件错误");
-        }
+//        byte[] classFile = ProxyGenerator.generateProxyClass(className, interfaces);
+//        /**
+//         * 如果目录不存在就新建所有子目录
+//         */
+//        Path path1 = Paths.get(pathdir);
+//        if (!path1.toFile().exists()){
+//            path1.toFile().mkdirs();
+//        }
+//        String path = pathdir + className + ".class";
+//        try (FileOutputStream fos = new FileOutputStream(path)) {
+//            fos.write(classFile);
+//            fos.flush();
+//            System.out.println("代理类class文件写入成功");
+//        } catch (Exception e) {
+//            System.out.println("写文件错误");
+//        }
     }    /**
      * 设置保存Java动态代理生成的类文件。
      *
